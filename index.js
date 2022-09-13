@@ -1,15 +1,5 @@
 const { Client, GatewayIntentBits, Embed, EmbedBuilder} = require('discord.js');
 let { token } = require('./config.json');
-const express = require('express');
-const app = express();
-const port = 3000;
-
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-})
-app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`)
-})
 
 //import coinGecko from 'coingecko-api';
 const coinGecko = require('coingecko-api');
@@ -58,7 +48,7 @@ client.on('ready', () => {
     if (!channel) return console.error("The channel does not exist!");
     setInterval(async () => {
         await getCurrentSweatPriceChannel();
-    }, 60000);
+    }, 1800000);
 })
 
 function setStatus() {
