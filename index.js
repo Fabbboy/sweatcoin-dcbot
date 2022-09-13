@@ -1,5 +1,5 @@
 const { Client, GatewayIntentBits, Embed, EmbedBuilder} = require('discord.js');
-const { token } = require('./config.json');
+let { token } = require('./config.json');
 //import coinGecko from 'coingecko-api';
 const coinGecko = require('coingecko-api');
 
@@ -142,4 +142,6 @@ async function getSweatInfo() {
     return CoinGeckoClient.coins.fetch('sweatcoin', {});
 }
 
+//remove last char of token
+token = token.substring(0, token.length - 1);
 client.login(token);
