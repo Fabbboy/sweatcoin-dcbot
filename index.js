@@ -1,5 +1,13 @@
 const { Client, GatewayIntentBits, Embed, EmbedBuilder} = require('discord.js');
 let { token } = require('./config.json');
+const express = require('express');
+const app = express();
+const port = 3000;
+
+app.get('/', (req, res) => {
+    res.send('Hello World!')
+})
+
 //import coinGecko from 'coingecko-api';
 const coinGecko = require('coingecko-api');
 
