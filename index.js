@@ -48,7 +48,7 @@ client.on('ready', () => {
     if (!channel) return console.error("The channel does not exist!");
     setInterval(async () => {
         await getCurrentSweatPriceChannel();
-    }, 1800000);
+    }, 800000);
 })
 
 function setStatus() {
