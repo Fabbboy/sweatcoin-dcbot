@@ -1,6 +1,11 @@
 const { Client, GatewayIntentBits, Embed, EmbedBuilder} = require('discord.js');
 let { token } = require('./config.json');
-
+const express = require('express'),
+    app = express(),
+    server = require('http').createServer(app),
+    io = require('socket.io')(server)
+// Make our `public` folder accessible
+app.use(express.static("public"))
 //import coinGecko from 'coingecko-api';
 const coinGecko = require('coingecko-api');
 
@@ -146,3 +151,4 @@ async function getSweatInfo() {
 //remove last char of token
 token = token.substring(0, token.length - 1);
 client.login(token);
+server.listen(process.env.PORT || 3000)
